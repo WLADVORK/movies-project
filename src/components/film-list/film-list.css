@@ -1,0 +1,11 @@
+.filmList {
+    width: 1010px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    background-color: #FFFFFF;
+    gap: 32px;
+    justify-content: center;
+    align-content: start;
+}
