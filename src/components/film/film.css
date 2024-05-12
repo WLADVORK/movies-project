@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Inter';
-    src: url(../../fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
+    src: url(../../../public/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
 .film {
@@ -8,6 +8,10 @@
     height: 280px;
     box-shadow: 0px 4px 12px 0px #00000026;
     display: flex;
+}
+
+.film__spin {
+    margin: auto;
 }
 
 .film__image {
@@ -68,4 +72,11 @@
     font-family: 'Inter';
     font-size: 12px;
     line-height: 22px;
+}
+
+.film__nofilm {
+    margin: auto;
+    font-family: 'Inter';
+    font-size: 50px;
+    color: #827E7E;
 }

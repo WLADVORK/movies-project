@@ -2,21 +2,29 @@ import React from 'react'
 import './app.css'
 
 import FilmList from '../film-list'
+import Header from '../header'
 
-export default function App() {
-  const findFilms = async () => {
-    const response = await fetch('https://api.themoviedb.org/3/search/movie?query=return&include_adult=true&page=1', {
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4Zjg4ZGE2YTE0ZjYyMGVkNDBhZWY2M2U2ODY4ODY5YyIsInN1YiI6IjY2M2I4YzE0NzcxZGEyNzUwNjNjMjMwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RB0eEv4qtHx1qOWP4rcs0Btn3NX9qcOyfDSBD5nc2JI',
-        accept: 'application/json',
-      },
-    })
-    const json = await response.json()
-    const res = json.results
-    res.length = 6
-    return res
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      wordForSearch: 'noword',
+    }
   }
 
-  return <FilmList filmsArr={findFilms} />
+  changeValue = ({ target }) => {
+    this.setState({
+      wordForSearch: target.value,
+    })
+  }
+
+  render() {
+    const { wordForSearch } = this.state
+    return (
+      <>
+        <Header onSearch={this.changeValue} />
+        <FilmList wordForSearch={wordForSearch} />
+      </>
+    )
+  }
 }

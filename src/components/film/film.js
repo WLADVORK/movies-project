@@ -1,9 +1,24 @@
 import React from 'react'
 import './film.css'
 import { format } from 'date-fns'
+import { Spin } from 'antd'
 
-export default function Film({ movie }) {
-  if (!movie) return <div className="film" />
+export default function Film({ movie, notFull }) {
+  if (!movie && notFull) {
+    return (
+      <div className="film">
+        <span className="film__nofilm">NO MOVIE</span>
+      </div>
+    )
+  }
+
+  if (!movie) {
+    return (
+      <div className="film">
+        <Spin className="film__spin" size="large" />
+      </div>
+    )
+  }
   const { poster_path: posterPath, title } = movie
   let { overview, release_date: releaseDate } = movie
   let poster
@@ -18,11 +33,17 @@ export default function Film({ movie }) {
     poster = <img className="film__image" src={`https://image.tmdb.org/t/p/original${posterPath}`} alt={title} />
   }
 
-  if (overview.split(' ').length > 35) {
+  if (!overview) {
+    overview = ''
+  } else if (overview.split(' ').length > 35) {
     overview = `${overview.split(' ').slice(0, 35).join(' ')} ...`
   }
 
-  releaseDate = format(new Date(releaseDate), 'MMMM dd, yyyy')
+  if (releaseDate) {
+    releaseDate = format(new Date(releaseDate), 'MMMM dd, yyyy')
+  } else {
+    releaseDate = 'No data'
+  }
   return (
     <div className="film">
       {poster}
