@@ -12,11 +12,15 @@ export default async function findFilms(word, num) {
   )
   const json = await response.json()
   let res = json.results
+  console.log(json)
   if (!word) {
     return []
   }
   if (res.length === 0) {
     res = ['nodata']
   }
-  return res
+  return {
+    total: json.total_results,
+    movies: res,
+  }
 }

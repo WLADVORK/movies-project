@@ -1,14 +1,26 @@
 html {
-    box-sizing: border-box;
-    background-color: #F7F7F7;
-  }
+  box-sizing: border-box;
+  background-color: #F7F7F7;
+  overflow-y: scroll
+}
   
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
 body {
   margin: 0;
 }
+
+.app {
+  width: 1010px;
+  align-items: center;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+}
+
+.ant-tabs-nav-operations {
+  display: none !important;
+  }

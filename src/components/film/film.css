@@ -35,6 +35,7 @@
     flex-direction: column;
     padding: 10px 20px;
     gap: 7px 0;
+    position: relative;
 }
 
 .info__heading {
@@ -43,6 +44,10 @@
     line-height: 28px;
     font-weight: 500;
     margin: 0;
+    max-height: 56px;
+    overflow: hidden;
+    width: 180px;
+    flex-shrink: 0;
 }
 
 .info__date {
@@ -54,7 +59,8 @@
 
 .info__genres {
     display: flex;
-    gap: 0 8px;
+    gap: 5px 8px;
+    flex-wrap: wrap;
 }
 
 .info__genre {
@@ -79,4 +85,41 @@
     font-family: 'Inter';
     font-size: 50px;
     color: #827E7E;
+}
+
+.info__rate {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 12px;
+    font-size: 19.5px;
+}
+
+.info__rating {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter';
+    font-size: 14px;
+}
+
+.info__rating--bad {
+    border: 2px solid #E90000
+}
+
+.info__rating--middle {
+    border: 2px solid #E97E00
+}
+
+.info__rating--good {
+    border: 2px solid #E9D100
+}
+
+.info__rating--awesome {
+    border: 2px solid #66E900
 }

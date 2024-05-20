@@ -1,77 +1,51 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable max-len */
 import React from 'react'
-import './film-list.css'
+import './rated-list.css'
 import { Alert, Pagination } from 'antd'
 import { Offline } from 'react-detect-offline'
 
 import Film from '../film'
-import findFilms from '../../service/find-films/find-films'
 import findRatedFilms from '../../service/find-rated-films/find-rated-films'
 
-export default class FilmList extends React.Component {
+export default class Rated extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      movies: [],
+      movies: [null],
       error: false,
       num: 1,
       total: 0,
-      ratings: [],
+      ratings: null,
     }
+  }
+
+  componentDidMount() {
+    const { num } = this.state
+    this.changeMovies(num)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { wordForSearch } = this.props
     const { num } = this.state
     if (prevState.num !== num) {
-      this.changeMovies(wordForSearch, num)
-    } else if (prevProps.wordForSearch !== wordForSearch) {
-      this.changeMovies(wordForSearch, 1)
-      this.setState({
-        num: 1,
-      })
+      this.changeMovies(num)
     }
   }
 
-  async changeMovies(word, num) {
+  async changeMovies(num) {
+    const { sessionId } = this.props
     let obj
     try {
-      obj = await findFilms(word, num)
-      if (obj.movies) {
-        this.showRatedFilms(obj.movies)
-        this.setState({
-          movies: [...obj.movies],
-          total: obj.total,
-        })
-      } else {
-        this.setState({
-          movies: [],
-          total: 0,
-        })
-      }
+      obj = await findRatedFilms(sessionId, num)
+      this.setState({
+        movies: [...obj.movies],
+        total: obj.total,
+        ratings: obj.ratings,
+      })
     } catch (err) {
       this.setState({
         error: true,
       })
-    }
-  }
-
-  async showRatedFilms(movies) {
-    const { sessionId } = this.props
-    const ids = movies.map((item) => item.id)
-    const obj = await findRatedFilms(sessionId, 1)
-    if (obj.total > 0) {
-      const ratedIds = obj.movies.map((item) => item.id)
-      const arr = []
-      ids.forEach((item, index) => {
-        if (ratedIds.includes(item)) {
-          const inx = ratedIds.indexOf(item)
-          const rate = obj.ratings[inx]
-          arr[index] = rate
-        }
-      })
-      this.setState({ ratings: arr })
     }
   }
 
@@ -85,19 +59,17 @@ export default class FilmList extends React.Component {
       </div>
     )
     const { movies, error, total, num, ratings } = this.state
-    const { wordForSearch, sessionId } = this.props
-    console.log(ratings)
+    const { sessionId } = this.props
     let pagination = true
     let blankPage = null
     let notFull = false
     if (movies.length > 0 && movies.length < 20) {
       notFull = true
     }
-    if (!wordForSearch && movies.length === 0) {
-      blankPage = <div className="film__nofilm">Type something to find movies</div>
-    } else if (wordForSearch && movies[0] === 'nodata') {
-      blankPage = <div className="film__nofilm">NO RESULTS</div>
+    if (movies.length > 0 && !movies[0]) {
+      blankPage = <div className="film__nofilm" />
     }
+
     if (blankPage) {
       pagination = null
     }
