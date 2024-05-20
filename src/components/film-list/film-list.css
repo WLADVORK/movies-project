@@ -1,19 +1,25 @@
 .filmList {
-    width: 1010px;
-    min-height: 592px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    background-color: #FFFFFF;
-    gap: 32px;
-    justify-content: center;
-    align-content: start;
-    padding: 32px 0;
-    position: relative;
+  width: 1010px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  background-color: #ffffff;
+  gap: 32px;
+  justify-content: center;
+  align-content: center;
+  padding: 32px 0;
+  position: relative;
 }
 
 .errorMessage {
-    position: absolute;
+  position: absolute;
 }
 
- 
+@media screen and (max-width: 1010px) {
+  .filmList {
+    width: calc(100vw - 32px);
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center
+  }
+}

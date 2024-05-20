@@ -22,7 +22,6 @@ export default class App extends React.Component {
   componentDidMount() {
     this.genres()
     createGuestSession().then((res) => {
-      console.log(res)
       this.setState({
         sessionId: res.guest_session_id,
       })

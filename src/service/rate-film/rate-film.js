@@ -12,6 +12,6 @@ export default function RateFilm(rate, sessionId, filmId) {
 
   fetch(`https://api.themoviedb.org/3/movie/${filmId}/rating?guest_session_id=${sessionId}`, options)
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => response)
     .catch((err) => console.error(err))
 }

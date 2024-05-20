@@ -1,29 +1,40 @@
 @font-face {
-    font-family: 'Inter';
-    src: url('/public/fonts/inter/Inter-VariableFont_slnt\,wght.ttf');
+  font-family: 'Inter';
+  src: url('/public/fonts/inter/Inter-VariableFont_slnt\,wght.ttf');
 }
 
-.header{
-    display: flex;
-    justify-content: center;
-    background-color: #FFFFFF;
-    width: 1010px;
-    margin: auto;
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 1010px;
+  margin: auto;
 }
 
 .header__search {
-    width: 932px;
-    height: 40px;
-    background-color: #FFFFFF;
-    border: 1px solid #D9D9D9;
-    border-radius: 5px;
-    padding-left: 12px;
+  width: 932px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding-left: 12px;
 }
 
-.header__search::placeholder{
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: #00000040;
+.header__search::placeholder {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #00000040;
+}
+
+@media screen and (max-width: 1010px) {
+  .header {
+    width: calc(100vw - 32px);
+  }
+
+  .header__search {
+    width: 100%;
+  }
+
 }

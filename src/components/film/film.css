@@ -1,125 +1,182 @@
 @font-face {
-    font-family: 'Inter';
-    src: url(../../../public/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
+  font-family: 'Inter';
+  src: url(../../../public/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
 .film {
-    width: 450px;
-    height: 280px;
-    box-shadow: 0px 4px 12px 0px #00000026;
-    display: flex;
+  width: 450px;
+  height: 280px;
+  box-shadow: 0px 4px 12px 0px #00000026;
+  display: flex;
 }
 
 .film__spin {
-    margin: auto;
+  margin: auto;
 }
 
-.film__image {
-    width: 190px;
-    flex-shrink: 0;
-    background-color: #FAFAFA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.info__image {
+  width: 200px;
+  flex-shrink: 0;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .film__blank {
-    font-family: 'Inter';
-    font-size: 20px;
-    line-height: 22px;
-    color: #827E7E;
+  font-family: 'Inter';
+  font-size: 20px;
+  line-height: 22px;
+  color: #827e7e;
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 20px;
-    gap: 7px 0;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px 5px;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .info__heading {
-    font-family: 'Inter';
-    font-size: 20px;
-    line-height: 28px;
-    font-weight: 500;
-    margin: 0;
-    max-height: 56px;
-    overflow: hidden;
-    width: 180px;
-    flex-shrink: 0;
+  font-family: 'Inter';
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  margin: 0;
+  max-height: 56px;
+  overflow: hidden;
+  width: 180px;
+  flex-shrink: 0;
+  margin-top: 10px;
 }
 
 .info__date {
-    font-family: 'Inter';
-    font-size: 12px;
-    line-height: 22px;
-    color: #827E7E;
+  font-family: 'Inter';
+  font-size: 12px;
+  line-height: 22px;
+  color: #827e7e;
+  width: 50%
 }
 
 .info__genres {
-    display: flex;
-    gap: 5px 8px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 5px 8px;
+  flex-wrap: wrap;
+  width: 50%
 }
 
 .info__genre {
-    background-color: #FAFAFA;
-    border: solid 1px #D9D9D9;
-    border-radius: 2px;
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14.52px;
-    color: #000000A6;
+  background-color: #fafafa;
+  border: solid 1px #d9d9d9;
+  border-radius: 2px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  color: #000000a6;
 }
 
 .info__description {
-    font-family: 'Inter';
-    font-size: 12px;
-    line-height: 22px;
+  font-family: 'Inter';
+  font-size: 12px;
+  line-height: 22px;
+  width: 50%;
 }
 
 .film__nofilm {
-    margin: auto;
-    font-family: 'Inter';
-    font-size: 50px;
-    color: #827E7E;
+  margin: auto;
+  font-family: 'Inter';
+  font-size: 50px;
+  color: #827e7e;
 }
 
 .info__rate {
-    display: flex;
-    justify-content: center;
-    margin-top: auto;
-    margin-bottom: 12px;
-    font-size: 19.5px;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 12px;
+  font-size: 19.5px;
+  margin-left: -20px;
 }
 
 .info__rating {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Inter';
-    font-size: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-size: 14px;
 }
 
 .info__rating--bad {
-    border: 2px solid #E90000
+  border: 2px solid #e90000;
 }
 
 .info__rating--middle {
-    border: 2px solid #E97E00
+  border: 2px solid #e97e00;
 }
 
 .info__rating--good {
-    border: 2px solid #E9D100
+  border: 2px solid #e9d100;
 }
 
 .info__rating--awesome {
-    border: 2px solid #66E900
+  border: 2px solid #66e900;
 }
+
+@media screen and (max-width: 1010px) {
+    .film {
+        width: 100%;
+        height: 245px;
+    }
+
+    .info {
+        padding: 5px 10px;
+        display: block;
+    }
+
+    .info__image {
+        width: 15%;
+        height: 21vw;
+        margin-right: 10px;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    .info__date {
+        margin-bottom: 7px;
+    }
+    
+    .info__heading {
+        margin-top: 0;
+        margin-bottom: 7px;
+        width: 280px;
+    }
+
+    .info__genres {
+        width: 290px;
+    }
+
+    .info__description{
+        clear: left;
+        width: 100%;
+    }
+
+    .info__rate {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        margin-bottom: 0;
+    }
+
+    .film__nofilm {
+      font-size: 6vw;
+    }
+  }

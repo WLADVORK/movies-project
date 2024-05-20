@@ -20,7 +20,6 @@ export default function findRatedFilms(sessionId, page) {
       if (res) {
         ratings = res.map((item) => item.rating)
       }
-      console.log(res)
       return {
         total: response.total_results,
         movies: res,

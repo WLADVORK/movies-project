@@ -1,9 +1,9 @@
 html {
   box-sizing: border-box;
-  background-color: #F7F7F7;
-  overflow-y: scroll
+  background-color: #f7f7f7;
+  overflow-y: scroll;
 }
-  
+
 *,
 *:before,
 *:after {
@@ -17,10 +17,16 @@ body {
 .app {
   width: 1010px;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0 auto;
 }
 
 .ant-tabs-nav-operations {
   display: none !important;
+}
+
+@media screen and (max-width: 1010px) {
+  .app {
+    width: 100vw;
   }
+}

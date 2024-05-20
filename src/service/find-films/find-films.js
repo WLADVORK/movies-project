@@ -12,7 +12,6 @@ export default async function findFilms(word, num) {
   )
   const json = await response.json()
   let res = json.results
-  console.log(json)
   if (!word) {
     return []
   }

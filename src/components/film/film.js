@@ -8,15 +8,7 @@ import { AsyncImage } from 'loadable-image'
 import RateFilm from '../../service/rate-film/rate-film'
 import GenresContext from '../../service/create-context/create-context'
 
-export default function Film({ movie, notFull, sessionId, rating }) {
-  if (!movie && notFull) {
-    return (
-      <div className="film">
-        <span className="film__nofilm">NO MOVIE</span>
-      </div>
-    )
-  }
-
+export default function Film({ movie, sessionId, rating }) {
   if (!movie) {
     return (
       <div className="film">
@@ -31,19 +23,19 @@ export default function Film({ movie, notFull, sessionId, rating }) {
 
   if (!posterPath) {
     poster = (
-      <div className="film__image">
+      <div className="info__image">
         <span className="film__blank">NO IMAGE</span>
       </div>
     )
   } else {
     poster = (
       <AsyncImage
-        className="film__image"
+        className="info__image"
         src={`https://image.tmdb.org/t/p/original${posterPath}`}
         alt={title}
         loader={
           // eslint-disable-next-line react/jsx-wrap-multilines
-          <div className="film__image">
+          <div className="info__image">
             <Spin />
           </div>
         }
@@ -95,8 +87,8 @@ export default function Film({ movie, notFull, sessionId, rating }) {
 
         return (
           <div className="film">
-            {poster}
             <div className="info">
+              {poster}
               <h5 className="info__heading">{title}</h5>
               <div className={`info__rating ${ratingColor}`}>{voteAverage}</div>
               <div className="info__date">{releaseDate}</div>
