@@ -1,1 +1,1 @@
-✅  Preview: https://movies-plwxdeciy-wladvorks-projects.vercel.app
+✅  Preview: https://movies-l1t76o4gv-wladvorks-projects.vercel.app

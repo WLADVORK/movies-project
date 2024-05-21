@@ -114,7 +114,11 @@ export default class FilmList extends React.Component {
     return (
       <div className="filmList">
         <Offline>
-          <Alert className="errorMessage" message="Отсутствует подключение к Интернету" type="error" />
+          <Alert
+            className="errorMessage errorMessage__connection"
+            message="Отсутствует подключение к Интернету"
+            type="error"
+          />
         </Offline>
         {blankPage || [
           error ? <Alert className="errorMessage" message="Ошибка загрузки" type="error" /> : null,

@@ -57,14 +57,14 @@
   font-size: 12px;
   line-height: 22px;
   color: #827e7e;
-  width: 50%
+  width: 50%;
 }
 
 .info__genres {
   display: flex;
   gap: 5px 8px;
   flex-wrap: wrap;
-  width: 50%
+  width: 50%;
 }
 
 .info__genre {
@@ -132,51 +132,51 @@
 }
 
 @media screen and (max-width: 1010px) {
-    .film {
-        width: 100%;
-        height: 245px;
-    }
-
-    .info {
-        padding: 5px 10px;
-        display: block;
-    }
-
-    .info__image {
-        width: 15%;
-        height: 21vw;
-        margin-right: 10px;
-        float: left;
-        margin-bottom: 10px;
-    }
-
-    .info__date {
-        margin-bottom: 7px;
-    }
-    
-    .info__heading {
-        margin-top: 0;
-        margin-bottom: 7px;
-        width: 280px;
-    }
-
-    .info__genres {
-        width: 290px;
-    }
-
-    .info__description{
-        clear: left;
-        width: 100%;
-    }
-
-    .info__rate {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        margin-bottom: 0;
-    }
-
-    .film__nofilm {
-      font-size: 6vw;
-    }
+  .film {
+    width: 100%;
+    height: 245px;
   }
+
+  .info {
+    padding: 5px 10px;
+    display: block;
+  }
+
+  .info__image {
+    width: 15%;
+    height: 21vw;
+    margin-right: 10px;
+    float: left;
+    margin-bottom: 10px;
+  }
+
+  .info__date {
+    margin-bottom: 7px;
+  }
+
+  .info__heading {
+    margin-top: 0;
+    margin-bottom: 7px;
+    width: 280px;
+  }
+
+  .info__genres {
+    width: 290px;
+  }
+
+  .info__description {
+    clear: left;
+    width: 100%;
+  }
+
+  .info__rate {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin-bottom: 0;
+  }
+
+  .film__nofilm {
+    font-size: 6vw;
+  }
+}
